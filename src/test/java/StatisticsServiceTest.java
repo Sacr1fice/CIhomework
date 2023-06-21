@@ -1,0 +1,56 @@
+package ru.netology;
+
+import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.Assertions;
+
+public class StatisticsServiceTest {
+
+    @Test
+    void findMax() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {12, 5, 8, 4, 5, 3, 8, 6, 11, 11, 12};
+        long expected = 12;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void findMaxIfAllIncomeEqual() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
+        long expected = 12;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void findMaxIfAllIncomeDifferent() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+        long expected = 11;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void findMaxIfNegativeAllIncomes() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11};
+        long expected = -1;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);
+    }
+}
